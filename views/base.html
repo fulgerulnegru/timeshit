@@ -1,8 +1,32 @@
 {% load static_includes %}
 <html>
   <head>
-    {% javascript_include_tag 'jquery-1.6.2.min' %}
-    {% stylesheet_include_tag 'master.css' %}
+    <meta charset="utf-8"> 
+    <meta name="description" content=""> 
+    <meta name="author" content="">
+
+    <title>{% block title %}Timeshit{% endblock %}</title>
+    {% javascript_include_tag 'jquery-1.6.4.min' %}
+    {% javascript_include_tag 'config' %}
+    {% javascript_include_tag 'signals.min' %}
+    {% javascript_include_tag 'hasher.min' %}
+    {% javascript_include_tag 'bootstrap-alerts' %}
+    {% javascript_include_tag 'bootstrap-modal' %}
+
+    {% javascript_include_tag 'routes' %}
+    {% javascript_include_tag 'clients' %}
+
+    {% stylesheet_include_tag 'bootstrap' %}
+    {% stylesheet_include_tag 'docs' %}
+    {% stylesheet_include_tag 'prettify' %}
+    {% stylesheet_include_tag 'application' %}
   </head>
+  <body>
+    {% block navigation %}
+    {% endblock %}
+    
+    {% block content %}
+    {% endblock %}
+  </body>
 </html>
 

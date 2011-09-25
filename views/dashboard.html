@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+  
+{% block title %}Timeshit{% endblock %}
+
+{% block navigation %}
+  <div class="topbar" data-dropdown="dropdown">
+    <div class="topbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Timeshit</a>
+        <ul class="nav">
+          <li><a href="#!/import">Import data</a></li>
+          <li><a href="#!/export">Export records</a></li>
+          <li><a href="#!/clients">Clients</a></li>
+          <li><a href="#!/projects">Projects</a><li>
+          <li><a href="#!/tasks">Tasks</a></li>
+          <li><a href="#!/records">Records</a></li>
+          <li><a href="#!/overview">Overview</a></li>
+          <li><a href="#!/about">About</a></li>
+          <li><a id="logout" href="{% url logout %}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div id="timer-wrapper">
+  <div id="timer-head">
+    <div id="timer-title">Daily records</div>
+    <div id="timer-time">03:08</div>
+    <div id="timer-current-time">09/24/2011 10:51:23 PM</div>
+  </div>
+  <div id="timer-body">
+    <div class="clearfix">
+      <select name="client">
+        <option value="0">Okapi</option>
+        <option value="">Add client...</option>
+      </select>
+    </div>
+    <div class="clearfix">
+      <select name="project">
+        <option value="0">Media Delivery</option>
+        <option value="">Add project...</option>
+      </select>
+    </div>
+    <div class="clearfix">
+      <select name="task">
+        <option value="0">Ticket #123</option>
+        <option value="">Add task...</option>
+      </select>
+    </div>
+    <div class="clearfix">
+      <button id="timer-startstop" class="btn large primary">Start</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

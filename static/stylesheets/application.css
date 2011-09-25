@@ -1,0 +1,100 @@
+input {
+    box-sizing: content-box;
+}
+
+select {
+    background: #FFF;
+}
+
+#login-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -86px;
+}
+
+/*
+            Timer
+*/
+
+#timer-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    width: 300px;
+    height: 300px;
+}
+
+    #timer-head {
+        width: 300px;
+        height: 120px;
+    }
+
+        #timer-title {
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        #timer-time {
+            font-size: 35px;
+            font-weight: bold;
+            padding: 20px 20px;
+            background: #FFF;
+            width: 88px;
+            margin: 0px auto;
+        }
+
+        #timer-current-time {
+            padding-top: 5px;
+            text-align: center;
+        }
+
+    #timer-body {
+        width: 210px;
+        height: 160px;
+        padding: 10px 45px;
+    }
+
+        #timer-body .clearfix {
+            margin: 10px 0px;
+        }
+
+        #timer-startstop {
+            margin: 0px 75px 0px 75px;
+        }
+
+#logout {
+    position: fixed;
+    left: 50%;
+    margin-left: 400px;
+}
+
+/*
+        Popups
+*/
+
+#clients-index {
+    
+}
+
+    #clients-index .name {
+        width: 80%;
+    }
+
+    #clients-index .client__actions {
+        width: 20%;
+        text-align: center;
+    }
+
+    #clients-index .client__actions a {
+        margin: 0px 3px;
+        font-weight: bold;
+    }
+
+.modal-footer .btn.primary {
+    float: left;
+}
+

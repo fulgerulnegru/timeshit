@@ -1,1 +1,28 @@
 {% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div id="login-wrapper">
+  <form class="form-stacked" action="{% url login %}" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Login</legend>
+      <div class="clearfix {% if form.errors.email %}error{% endif %}">
+        <label for="field_email">Email adress:</label>
+        <input type="text" class="xlarge" id="field_email" name="email" value="{{ form.data.email }}"/>
+        {% if form.errors.email %}
+          <span class="help-inline">{{ form.errors.email.as_text }}</span>
+        {% endif %}
+      </div>
+      <div class="clearfix">
+        <label for="field_password">Password:</label>
+        <input type="password" class="xlarge" id="field_password" name="password" value="{{ form.data.password }}"/>
+      </div>
+      <div class="clearfix">
+        <button type="submit" class="btn primary">Login</button>
+      </div>
+    </ul>
+  </form>
+</div>
+{% endblock %}
