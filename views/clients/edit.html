@@ -4,7 +4,9 @@
     <h3>Edit Client</h3>
   </div>
   <div class="modal-body">
-    <form class="form-stacked" action="{% url ts__edit_client client_id=client.id %}" method="post">
+    <form class="form-stacked" action="{% url ts__update_client client_id=client.id %}"
+      method="post" id="edit-client-form">
+      {% csrf_token %}
       <div class="clearfix">
         <label for="field_name">Name</label>
         <input type="text" class="xlarge" id="field_name" name="name" value="{{ client.name }}"/>
@@ -12,7 +14,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn primary">Create</a>
-    <a href="#" class="btn secondary cancel">Cancel</a>
+    <a href="#" class="btn primary" id="update-client-button">Update</a>
+    <a href="#!{% url ts__clients %}" class="btn secondary cancel">Cancel</a>
   </div>
 </div>

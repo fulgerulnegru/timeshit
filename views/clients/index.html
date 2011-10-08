@@ -1,21 +1,23 @@
-<div id="clients-wizard" class="modal fade in">
+<div id="clients-wizard" class="modal fade in wizard">
   <div class="modal-header">
     <a href="#" class="close">×</a>
     <h3>Clients</h3>
   </div>
   <div class="modal-body">
     <table id="clients-index">
+      {% for client in clients %}
       <tr>
-        <td class="name">Okapi</td>
+        <td class="name">{{ client.name }}</td>
         <td class="client__actions">
-          <a class="blue" href="#!/clients/1/" title="View">V</a>
-          <a class="green" href="#!/clients/1/edit" title="Edit">E</a>
-          <a class="red" href="#!/clients/1/delete" title="Delete">D</a>
+          <a class="blue" href="#!{% url ts__show_client client_id=client.id %}" title="View">V</a>
+          <a class="green" href="#!{% url ts__edit_client client_id=client.id %}" title="Edit">E</a>
+          <a class="red" href="#!{% url ts__delete_client client_id=client.id %}" title="Delete">D</a>
         </td>
       </tr>
+      {% endfor %}
     </table>
   </div>
   <div class="modal-footer">
-    <a href="#!/clients/new" class="btn primary">Add</a>
+    <a href="#!/clients/new/" class="btn primary">Add</a>
   </div>
 </div>

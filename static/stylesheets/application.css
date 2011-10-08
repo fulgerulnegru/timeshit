@@ -94,7 +94,29 @@ select {
         font-weight: bold;
     }
 
+#projects-index {
+    
+}
+
+    #projects-index .name {
+        width: 80%;
+    }
+
+    #projects-index .project__actions {
+        width: 20%;
+        text-align: center;
+    }
+
+    #projects-index .project__actions a {
+        margin: 0px 3px;
+        font-weight: bold;
+    }
+
 .modal-footer .btn.primary {
     float: left;
 }
 
+label.error {
+    display: inline;
+    margin-left: 20px;
+}
