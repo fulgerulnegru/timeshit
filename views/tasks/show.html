@@ -1,0 +1,23 @@
+<div id="projects-wizard" class="modal fade in wizard">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Projects {% if client %} for {{ client.name }} {% endif %}</h3>
+  </div>
+  <div class="modal-body">
+    <table id="clients-index">
+      {% for project in projects %}
+      <tr>
+        <td class="name">{{ project.name }}</td>
+        <td class="project__actions">
+          <a class="blue" href="#!{% url ts__show_project project_id=project.id %}" title="View">V</a>
+          <a class="green" href="#!{% url ts__edit_project project_id=project.id %}" title="Edit">E</a>
+          <a class="red" href="#!{% url ts__delete_project project_id=project.id %}" title="Delete">D</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="modal-footer">
+    <a href="#!/projects/new/" class="btn primary">Add</a>
+  </div>
+</div>

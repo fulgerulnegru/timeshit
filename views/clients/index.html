@@ -4,14 +4,14 @@
     <h3>Clients</h3>
   </div>
   <div class="modal-body">
-    <table id="clients-index">
+    <table id="resources-index">
       {% for client in clients %}
       <tr>
         <td class="name">{{ client.name }}</td>
-        <td class="client__actions">
-          <a class="blue" href="#!{% url ts__show_client client_id=client.id %}" title="View">V</a>
-          <a class="green" href="#!{% url ts__edit_client client_id=client.id %}" title="Edit">E</a>
-          <a class="red" href="#!{% url ts__delete_client client_id=client.id %}" title="Delete">D</a>
+        <td class="resource__actions">
+          <a class="blue" href="#!/clients/{{ client.id }}/" title="View">V</a>
+          <a class="green" href="#!/clients/{{ client.id }}/edit/" title="Edit">E</a>
+          <a class="red" href="#!/clients/{{ client.id }}/delete/" title="Delete">D</a>
         </td>
       </tr>
       {% endfor %}

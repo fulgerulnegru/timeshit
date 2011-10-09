@@ -25,7 +25,7 @@ def create(request, user, form):
         'model': 'client',
         'id': client.id,
         'name': client.name,
-        'redirectUrl': reverse('ts__clients'),
+        'redirectUrl': '/clients/',
     })
 
 
@@ -39,10 +39,10 @@ def index(request):
 
 
 def show(request, client_id):
-    client = get_object_or_404(TimeshitClient, id = client_id)
+    user = user_auth(request)
+    client = get_object_or_404(TimeshitClient, id = client_id, user = user)
     projects = TimeshitProject.objects.filter(client = client)
-
-    return render_to_response('clients/show.html',
+    return render_to_response('projects/index.html',
                               {'client': client, 'projects': projects},
                               context_instance = RequestContext(request))
 
@@ -60,16 +60,18 @@ def update(request, client_id):
     user = user_auth(request)
     instance = get_object_or_404(TimeshitClient, id=client_id)
     form = TimeshitClientForm(request.POST, instance = instance)
-    client = form.save(commit = False)
-    if client.user != user:
-        return ajax_no_perm()
-    client.save()
-    return ajax_response('Client updated', {
-        'model': 'client',
-        'id': client.id,
-        'name': client.name,
-        'redirectUrl': reverse('ts__clients'),
-    })
+    if form.is_valid():
+        client = form.save(commit = False)
+        if client.user != user:
+            return ajax_no_perm()
+        client.save()
+        return ajax_response('Client updated', {
+            'model': 'client',
+            'id': client.id,
+            'name': client.name,
+            'redirectUrl': '/clients/',
+        })
+    return ajax_response("Form is not valid", serialize_form_errors(form), code = 1)
 
 
 def delete(request, client_id):

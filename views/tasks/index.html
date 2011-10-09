@@ -1,0 +1,23 @@
+<div id="projects-wizard" class="modal fade in wizard">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Tasks {% if project %} on project {{ project.name }}  for {{ project.client.name }}{% endif %}</h3>
+  </div>
+  <div class="modal-body">
+    <table id="resources-index">
+      {% for task in tasks %}
+      <tr>
+        <td class="name">{{ task.name }}</td>
+        <td class="resource__actions">
+          <a class="blue" href="#!/tasks/{{ task.id }}/" title="View">V</a>
+          <a class="green" href="#!/tasks/{{ task.id }}/edit/" title="Edit">E</a>
+          <a class="red" href="#!/tasks/{{ task.id }}/delete/" title="Delete">D</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="modal-footer">
+    <a href="#!/tasks/new/" class="btn primary">Add</a>
+  </div>
+</div>

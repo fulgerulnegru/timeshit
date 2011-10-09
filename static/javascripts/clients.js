@@ -1,9 +1,5 @@
 function clients__before_filter() {
   $('.wizard').slideUp(function () {
-    console.log(this);
-    $(this).remove();
-  });
-  $('.modal-backdrop').slideUp(function () {
     $(this).remove();
   });
 }
@@ -63,7 +59,7 @@ function clients__show(id) {
 
 function clients__delete(id) {
   if (confirm("Are you sure you want to delete it ?")) {
-    $.get
+ //   $.get
   }
 }
 

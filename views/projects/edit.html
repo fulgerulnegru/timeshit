@@ -1,0 +1,28 @@
+<div id="edit-project-wizard" class="modal hide fade in wizard">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Edit Project</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-stacked" action="{% url ts__update_project project_id=project.id %}"
+      method="post" id="edit-project-form">
+      {% csrf_token %}
+      <div class="clearfix">
+        <label for="field_name">Name</label>
+        <input type="text" class="xlarge" id="field_name" name="name" value="{{ project.name }}"/>
+      </div>
+      <div class="clearfix">
+        <label for="field_client">Client</label>
+        <select id="field_client" name="client" class="xlarge">
+        {% for client in clients %}
+          <option value="{{ client.id }}" {% if client.id == project.client.id %}selected{% endif %}>{{ client.name }}</option>
+        {% endfor %}
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn primary" id="update-project-button">Update</a>
+    <a href="#!{% url ts__projects %}" class="btn secondary cancel">Cancel</a>
+  </div>
+</div>

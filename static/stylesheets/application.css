@@ -1,18 +1,24 @@
 input {
-    box-sizing: content-box;
+    box-sizing: padding-box;
+    height: 28px;
 }
 
 select {
     background: #FFF;
+    box-sizing: padding-box;
 }
 
-#login-wrapper {
+#login-wrapper-vertical {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-left: -150px;
     margin-top: -86px;
 }
+
+    #login-wrapper-horizontal {
+        position: relative;
+        left: -50%;
+    }
 
 /*
             Timer
@@ -76,38 +82,20 @@ select {
         Popups
 */
 
-#clients-index {
+#resources-index {
     
 }
 
-    #clients-index .name {
+    #resources-index .name {
         width: 80%;
     }
 
-    #clients-index .client__actions {
+    #resources-index .resource__actions {
         width: 20%;
         text-align: center;
     }
 
-    #clients-index .client__actions a {
-        margin: 0px 3px;
-        font-weight: bold;
-    }
-
-#projects-index {
-    
-}
-
-    #projects-index .name {
-        width: 80%;
-    }
-
-    #projects-index .project__actions {
-        width: 20%;
-        text-align: center;
-    }
-
-    #projects-index .project__actions a {
+    #resources-index .resource__actions a {
         margin: 0px 3px;
         font-weight: bold;
     }

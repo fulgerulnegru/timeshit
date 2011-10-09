@@ -1,5 +1,4 @@
 (function( $ ){
-
   $.fn.timeshitForm = function(options) {
     this.ajaxForm({
       beforeSubmit: function (formData, jqForm, options) {
@@ -23,7 +22,7 @@
           if (response.code == 0) {
             console.log(response.object.redirectUrl);
             window.location.hash = BASE_URL + "#!" + response.object.redirectUrl;
-            $($form).remove();
+            $($form).parents('.wizard').remove();
           } else {
             // show errors
           }

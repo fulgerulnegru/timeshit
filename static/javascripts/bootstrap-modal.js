@@ -70,11 +70,7 @@
 
   Modal.prototype = {
 
-      toggle: function () {
-        return this[!this.isShown ? 'show' : 'hide']()
-      }
-
-    , show: function () {
+      show: function () {
         var that = this
         this.isShown = true
         this.$element.trigger('show')
@@ -104,17 +100,16 @@
         this.isShown = false
 
         escape.call(this)
-
+        
+        console.log(that);
         this.$element
           .trigger('hide')
           .removeClass('in')
 
         function removeElement () {
-          that.$element
-            .hide()
-            .trigger('hidden')
-
-          backdrop.call(that)
+          $(this).remove();
+          that = undefined;
+          window.location.hash = "!/"
         }
 
         $.support.transition && this.$element.hasClass('fade') ?
@@ -193,7 +188,7 @@
 
       if (typeof options == 'string') {
         options = {
-          show: /show|toggle/.test(options)
+          show: /show/.test(options)
         }
       }
 
@@ -206,12 +201,7 @@
       return modal
     }
 
-    if ( typeof options == 'string' ) {
-      modal[options]()
-    } else if ( modal ) {
-      modal.toggle()
-    }
-
+    modal[options]()
     return this
   }
 
