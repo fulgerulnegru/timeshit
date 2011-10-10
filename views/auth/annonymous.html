@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div id="annonymous-actions-vertical">
+        <div id="annonymous-actions-horizontal">
+            {% include "auth/login.html" %}
+            {% include "auth/register.html" %}
+        </div>
+    </div>
+{% endblock %}

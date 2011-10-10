@@ -816,6 +816,12 @@ input.span5, textarea.span5, select.span5 {
   width: 270px;
   margin-left: 0;
 }
+input.span55, textarea.span55, select.span55 {
+  display: inline-block;
+  float: none;
+  width: 305px;
+  margin-left: 0;
+}
 input.span6, textarea.span6, select.span6 {
   display: inline-block;
   float: none;

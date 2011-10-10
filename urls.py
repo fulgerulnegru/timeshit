@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^tasks/(?P<task_id>\d+)/update/$', 'timeshit.controllers.tasks.update', name='ts__update_task'),
     url(r'^tasks/(?P<task_id>\d+)/delete/$', 'timeshit.controllers.tasks.delete', name='ts__delete_task'),
 
-
+    url(r'^auth/register/$', 'timeshit.controllers.users.register', name='register'),
     url(r'^auth/login/$', 'timeshit.controllers.users.login', name='login'),
     url(r'^auth/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
 )

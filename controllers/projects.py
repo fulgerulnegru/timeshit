@@ -24,7 +24,7 @@ def create(request, user, form):
         'model': 'project',
         'id': project.id,
         'name': project.name,
-        'redirectUrl': '/projects/'
+        'redirectUrl': '/clients/%s/' % project.client.id
     })
 
 
@@ -72,7 +72,7 @@ def update(request, project_id):
             'model': 'project',
             'id': project.id,
             'name': project.name,
-            'redirectUrl': '/projects/',
+            'redirectUrl': '/clients/%s/' % project.client.id
         });
     return ajax_response("Form is not valid", serialize_form_errors(form), code = 1)
 

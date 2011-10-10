@@ -1,0 +1,28 @@
+<form id="register-form" class="form-stacked" action="{% url register %}" method="POST" autocomplete="off">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Register</legend>
+
+    <div class="clearfix {% if form.errors.email %}error{% endif %}">
+      <input type="text" class="span55" id="field_email" name="email" value="{{ form.data.email }}" placeholder="Email address"/>
+      {% if form.errors.email %}
+        <span class="help-inline">{{ form.errors.email.as_text }}</span>
+      {% endif %}
+    </div>
+
+    <div class="clearfix">
+      <label for="field_name">
+      <input type="text" class="span3" id="field_first_name" name="first_name" value="{{ form.data.first_name }}" placeholder="First name" />
+      <input type="text" class="span3" id="field_last_name" name="last_name" value="{{ form.data.last_name}}" placeholder="Last name" />
+    </div>
+    
+    <div class="clearfix">
+      <input type="password" class="span3" id="field_password" name="password" value="" placeholder="Password"/>
+      <input type="password" class="span3" id="field_password2" name="password2" value="" placeholder="Repeat password"/>
+    </div>
+
+    <div class="clearfix">
+      <button type="submit" class="btn primary">Login</button>
+    </div>
+  </fieldset>
+</form>

@@ -26,3 +26,19 @@ class LoginForm(forms.ModelForm):
         self.cleaned_data['user'] = user
         print self.cleaned_data
         return self.cleaned_data
+
+
+class RegisterForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('email', 'password', 'first_name', 'last_name')
+
+    def clean_username(self):
+        email = self.cleaned_data['email']
+        user = get_object_or_None(email = email)
+
+        if not user:
+            raise forms.ValidationError('Email already registered')
+        return email
+
+

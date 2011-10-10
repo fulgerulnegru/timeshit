@@ -8,16 +8,25 @@ select {
     box-sizing: padding-box;
 }
 
-#login-wrapper-vertical {
+#annonymous-actions-vertical {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -86px;
+    margin-top: -163px;
 }
 
-    #login-wrapper-horizontal {
+    #annonymous-actions-horizontal {
         position: relative;
         left: -50%;
+    }
+
+    #register-form, #login-form {
+    }
+
+    #login-form {
+        margin-bottom: 50px;
+    }
+    #register-form {
     }
 
 /*

@@ -4,6 +4,7 @@
     <h3>Tasks {% if project %} on project {{ project.name }}  for {{ project.client.name }}{% endif %}</h3>
   </div>
   <div class="modal-body">
+    {% if tasks %}
     <table id="resources-index">
       {% for task in tasks %}
       <tr>
@@ -16,6 +17,11 @@
       </tr>
       {% endfor %}
     </table>
+    {% else %}
+    <div class="alert-message block-message error">
+      No tasks found.
+    </div>
+    {% endif %}
   </div>
   <div class="modal-footer">
     <a href="#!/tasks/new/" class="btn primary">Add</a>
