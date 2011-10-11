@@ -1,0 +1,32 @@
+<div id="timer-wrapper">
+  <div id="timer-head">
+    <div id="timer-title">Daily records</div>
+    <div id="timer-time">03:08</div>
+    <div id="timer-current-time">09/24/2011 10:51:23 PM</div>
+  </div>
+  <div id="timer-body">
+    <div class="clearfix">
+      <select name="client">
+      {% for client in clients %}
+        <option value="{{ client.id }}">{{ client.name }}</option>
+      {% endfor %}
+      </select>
+    </div>
+    <div class="clearfix">
+      <select name="project">
+        <option value="0">Media Delivery</option>
+        <option value="">Add project...</option>
+      </select>
+    </div>
+    <div class="clearfix">
+      <select name="task">
+        <option value="0">Ticket #123</option>
+        <option value="">Add task...</option>
+      </select>
+    </div>
+    <div class="clearfix">
+      <button id="timer-startstop" class="btn large primary">Start</button>
+    </div>
+  </div>
+</div>
+

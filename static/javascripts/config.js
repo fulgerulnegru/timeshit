@@ -15,6 +15,8 @@ TASKS_NEW = BASE_URL + "/tasks/new/"
 TASKS_EDIT = function (id) { return BASE_URL + '/tasks/' + id + '/edit/';};
 TASKS_SHOW = function (id) { return BASE_URL + '/tasks/' + id + '/';};
 
+TIMER_URL = BASE_URL + "/timer/";
+
 
 MODAL_OPTIONS = {
   backdrop: false,

@@ -1,10 +1,5 @@
 function projects__before_filter() {
-  $('.wizard').slideUp(function () {
-    $(this).remove();
-  });
-  $('.modal-backdrop').slideUp(function () {
-    $(this).remove();
-  });
+  wizard_before_filter();
 }
 
 

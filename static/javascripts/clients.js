@@ -1,7 +1,5 @@
 function clients__before_filter() {
-  $('.wizard').slideUp(function () {
-    $(this).remove();
-  });
+  wizard_before_filter();
 }
 
 

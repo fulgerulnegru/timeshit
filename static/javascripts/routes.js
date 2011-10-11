@@ -1,4 +1,6 @@
 $(document).ready(function (evt) {
+ // Hasher.add('/', timer__show);
+
   Hasher.add('/clients/', clients__index);
   Hasher.add('/clients/new/', clients__new);
   Hasher.add('/clients/:id/', clients__show);

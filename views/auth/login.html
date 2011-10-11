@@ -3,7 +3,7 @@
   <fieldset>
     <legend>Login</legend>
     <div class="clearfix {% if form.errors.email %}error{% endif %}">
-      <input type="text" class="span55" id="field_email" name="email" value="{{ form.data.email }}" placeholder="Email anddress"/>
+      <input type="text" class="span55" id="field_email" name="email" value="{{ form.data.email }}" placeholder="Email address"/>
       {% if form.errors.email %}
         <span class="help-inline">{{ form.errors.email.as_text }}</span>
       {% endif %}

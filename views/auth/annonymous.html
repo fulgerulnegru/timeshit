@@ -1,12 +1,33 @@
-{% extends "base.html" %}
+{% load static_includes %}
+<html>
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="description" content=""> 
+    <meta name="author" content="">
 
-{% block title %}Login{% endblock %}
+    <title>Welcome to Timeshit</title>
+    {% javascript_include_tag 'jquery-1.6.4.min' %}
+    {% javascript_include_tag 'jquery.form' %}
+    {% javascript_include_tag 'jquery.validate.min' %}
+    {% javascript_include_tag 'jquery.timeshitform' %}
 
-{% block content %}
+    {% javascript_include_tag 'config' %}
+    {% javascript_include_tag 'annonymous' %}
+
+    {% stylesheet_include_tag 'bootstrap' %}
+    {% stylesheet_include_tag 'application' %}
+  </head>
+  <body>
+    {% block navigation %}
+    {% endblock %}
     <div id="annonymous-actions-vertical">
         <div id="annonymous-actions-horizontal">
             {% include "auth/login.html" %}
             {% include "auth/register.html" %}
         </div>
     </div>
+  </body>
+</html>
+
+{% block content %}
 {% endblock %}

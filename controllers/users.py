@@ -6,7 +6,8 @@ from django.template import RequestContext
 
 from timeshit.decorators import ajax_handler
 from timeshit.forms import *
-
+from timeshit.helpers.ajax import *
+from timeshit.helpers.auth import *
 
 def dashboard(request):
     if not request.user.is_authenticated():
@@ -15,8 +16,16 @@ def dashboard(request):
 
 
 def dashboard_for_users(request):
+    user = user_auth(request)
+    clients = TimeshitClient.objects.filter(user = user)
+    projects = TimeshitProject.objects.filter(user = user)
+    tasks = TimeshitTask.objects.filter(user = user)
     return render_to_response('dashboard.html',
-                              {},
+                              {
+                                  'clients': clients,
+                                  'projects': projects,
+                                  'tasks': tasks,
+                              }, 
                               context_instance = RequestContext(request)
                              )
 
@@ -29,8 +38,11 @@ def dashboard_for_annonymous(request):
 
 @ajax_handler(LoginForm)
 def login(request, user, form):
-    auth_login(request, form.cleaned_data['user'])
-    return HttpResponseRedirect(reverse('ts__dashboard'))
+    user = form.cleaned_data['user']
+    auth_login(request, user)
+    return ajax_response("Welcome %s %s" % (user.first_name, user.last_name), {
+        'redirectUrl': '/'    
+    })
 
 
 @ajax_handler(RegisterForm)
