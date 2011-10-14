@@ -68,7 +68,7 @@ select {
         }
 
     #timer-body {
-        width: 210px;
+        width: 260px;
         height: 160px;
         padding: 10px 45px;
     }
@@ -77,9 +77,23 @@ select {
             margin: 10px 0px;
         }
 
+        #time-body select {
+            vertical-align: bottom;
+        }
+
+        #timer-body .add-object {
+            padding: 0px;
+            margin-left: 10px;
+            padding-top: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            height: 27px; width: 27px;
+        }
+
         #timer-startstop {
             margin: 0px 75px 0px 75px;
         }
+
 
 #logout {
     position: fixed;
@@ -117,3 +131,5 @@ label.error {
     display: inline;
     margin-left: 20px;
 }
+
+

@@ -1,3 +1,4 @@
+{% load static_includes %}
 <div id="timer-wrapper">
   <div id="timer-head">
     <div id="timer-title">Daily records</div>
@@ -11,18 +12,24 @@
         <option value="{{ client.id }}">{{ client.name }}</option>
       {% endfor %}
       </select>
+      <a href="#!/clients/new/" class="add-object">+</a>
     </div>
     <div class="clearfix">
       <select name="project">
-        <option value="0">Media Delivery</option>
-        <option value="">Add project...</option>
+      {% for project in projects %}
+        <option value="{{ project.id }}" client="{{ project.client.id }}">
+          {{ project.name }}
+        </option>
+      {% endfor %}
       </select>
+      <a href="#!/clients/new/" class="add-object">+</a>
     </div>
     <div class="clearfix">
       <select name="task">
         <option value="0">Ticket #123</option>
         <option value="">Add task...</option>
       </select>
+      <a href="#!/tasks/new/" class="add-object">+</a>
     </div>
     <div class="clearfix">
       <button id="timer-startstop" class="btn large primary">Start</button>
