@@ -1,11 +1,13 @@
 input {
-    box-sizing: padding-box;
     height: 28px;
 }
 
 select {
     background: #FFF;
-    box-sizing: padding-box;
+}
+
+select option:disabled {
+    display: none;
 }
 
 #annonymous-actions-vertical {
@@ -82,12 +84,13 @@ select {
         }
 
         #timer-body .add-object {
-            padding: 0px;
-            margin-left: 10px;
-            padding-top: 50px;
+            display: inline-block;
+            vertical-align: middle;
+            padding: 2px 3px 6px;
+        }
+        #timer-body .add-object a {
             font-size: 30px;
             font-weight: bold;
-            height: 27px; width: 27px;
         }
 
         #timer-startstop {

@@ -3,33 +3,40 @@
   <div id="timer-head">
     <div id="timer-title">Daily records</div>
     <div id="timer-time">03:08</div>
-    <div id="timer-current-time">09/24/2011 10:51:23 PM</div>
+    <div id="timer-current-time"></div>
   </div>
   <div id="timer-body">
     <div class="clearfix">
-      <select name="client">
+      <select name="client" id="timer-client">
       {% for client in clients %}
         <option value="{{ client.id }}">{{ client.name }}</option>
       {% endfor %}
       </select>
-      <a href="#!/clients/new/" class="add-object">+</a>
+      <div class="add-object">
+        <a href="#!/clients/new/" title="Add client">+</a>
+      </div>
     </div>
     <div class="clearfix">
-      <select name="project">
+      <select name="project" id="timer-project">
       {% for project in projects %}
         <option value="{{ project.id }}" client="{{ project.client.id }}">
           {{ project.name }}
         </option>
       {% endfor %}
       </select>
-      <a href="#!/clients/new/" class="add-object">+</a>
+      <div class="add-object">
+        <a href="#!/projects/new/" title="Add project">+</a>
+      </div>
     </div>
     <div class="clearfix">
-      <select name="task">
-        <option value="0">Ticket #123</option>
-        <option value="">Add task...</option>
+      <select name="task" id="timer-task">
+      {% for task in tasks %}
+        <option value="{{ task.id}}" project="{{ task.project.id }}">{{ task.name }}</option>
+      {% endfor %}
       </select>
-      <a href="#!/tasks/new/" class="add-object">+</a>
+      <div class="add-object">
+        <a href="#!/tasks/new/" title="Add task">+</a>
+      </div>
     </div>
     <div class="clearfix">
       <button id="timer-startstop" class="btn large primary">Start</button>
