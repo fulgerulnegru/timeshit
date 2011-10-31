@@ -10,6 +10,19 @@ def timedelta_to_hours(delta):
 
 
 def get_today_working_time(user):
-    today = datetime.date.today()
-    tomorrow = today + datetime.timedelta(days=1)
+    today_date = datetime.date.today()
+    today = datetime.datetime(
+        year = today_date.year,
+        month = today_date.month,
+        day = today_date.day
+    )
+    records = TimeshitRecord.objects.filter(
+        end_time__gte = today,
+        user = user
+    )
+    seconds = 0
+    for record in records:
+        start_time = record.start_time if record.start_time >= today else today
+        seconds += (record.end_time - start_time).seconds
+    return seconds
 

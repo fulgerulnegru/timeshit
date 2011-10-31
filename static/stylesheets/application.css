@@ -135,4 +135,6 @@ label.error {
     margin-left: 20px;
 }
 
-
+#about-wizard .modal-body {
+    text-align: center;
+}

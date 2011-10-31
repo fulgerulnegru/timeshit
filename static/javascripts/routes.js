@@ -1,5 +1,5 @@
 $(document).ready(function (evt) {
- // Hasher.add('/', timer__show);
+  Hasher.add('/', timer__show);
 
   Hasher.add('/clients/', clients__index);
   Hasher.add('/clients/new/', clients__new);
@@ -19,6 +19,8 @@ $(document).ready(function (evt) {
   Hasher.add('/tasks/:id/', tasks__show);
   Hasher.add('/tasks/:id/edit/', tasks__edit);
   Hasher.add('/tasks/:id/delete/', tasks__delete);
+
+  Hasher.add('/about/', show_about);
 
   Hasher.setup();
 });

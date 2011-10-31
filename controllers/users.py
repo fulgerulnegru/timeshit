@@ -49,3 +49,6 @@ def login(request, user, form):
 def register(request):
     return HttpResponse("Okay");
 
+
+def about(request):
+    return render_to_response("utils/about.html", {}, context_instance=RequestContext(request))

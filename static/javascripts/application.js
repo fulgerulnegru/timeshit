@@ -14,19 +14,27 @@ function wizard_before_filter() {
   });
 }
 
-/*function timer__show() {
+function timer__show() {
   wizard_before_filter();
-  $.get(TIMER_URL, function (data) {
+ /* $.get(TIMER_URL, function (data) {
     $(data).modal(MODAL_OPTIONS);
-  });
-}*/
+  });*/
+}
 
 function setDateTimeToTimer() {
   setTimeout(setDateTimeToTimer, 1000);
   $('#timer-current-time').html(getDateTime());
 }
 
+function show_about() {
+  wizard_before_filter();
+  $.get(ABOUT_URL, function(data) {
+    $(data).modal(MODAL_OPTIONS);
+  });
+}
+
 $(document).ready(function() {
-  window.location.hash = "!/";
+  if (window.location.hash == "")
+    window.location.hash = "!/";
   setDateTimeToTimer();
 });

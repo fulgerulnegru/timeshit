@@ -1,5 +1,14 @@
-function records__new(client, project, task) {
+function records__toggle(client, project, task, url) {
   console.log(client, project, task);
+  var data="task="+task;
+  $.ajax({
+    url: url,
+    data: data,
+    type: "post",
+    success: function (response) {
+      console.log(response);
+    }
+  });
 }
 
 function startTimer() {
@@ -11,7 +20,7 @@ function startTimer() {
   var client = $('#timer-client').val();
   var project = $('#timer-project').val();
   var task = $('#timer-task').val();
-  records__new(client, project, task);
+  records__toggle(client, project, task, RECORDS_START);
 }
 
 function stopTimer() {
@@ -19,6 +28,10 @@ function stopTimer() {
   $(button).removeClass('started').removeClass('error').addClass('primary')
   $(button).html('Start');
   $('#timer-body select').removeAttr('disabled');
+  var client = $('#timer-client').val();
+  var project = $('#timer-project').val();
+  var task = $('#timer-task').val();
+  records__toggle(client, project, task, RECORDS_STOP);
 }
 
 function toggleTimer(evt) {

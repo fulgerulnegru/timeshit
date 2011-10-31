@@ -11,11 +11,15 @@ PROJECTS_EDIT = function (id) { return BASE_URL + '/projects/' + id + '/edit/';}
 PROJECTS_SHOW = function (id) { return BASE_URL + '/projects/' + id + '/';};
 
 TASKS_INDEX = BASE_URL + "/tasks/";
-TASKS_NEW = BASE_URL + "/tasks/new/"
+TASKS_NEW = BASE_URL + "/tasks/new/";
 TASKS_EDIT = function (id) { return BASE_URL + '/tasks/' + id + '/edit/';};
 TASKS_SHOW = function (id) { return BASE_URL + '/tasks/' + id + '/';};
 
+RECORDS_START = BASE_URL + "/records/start/";
+RECORDS_STOP = BASE_URL + "/records/stop/";
+
 TIMER_URL = BASE_URL + "/timer/";
+ABOUT_URL = BASE_URL + "/about/";
 
 
 MODAL_OPTIONS = {
