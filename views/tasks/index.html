@@ -25,5 +25,8 @@
   </div>
   <div class="modal-footer">
     <a href="#!/tasks/new/" class="btn primary">Add</a>
+    {% if project %}
+    <a href="#!/clients/{{ project.client.id }}/" class="btn">Back to projects</a>
+    {% endif %}
   </div>
 </div>

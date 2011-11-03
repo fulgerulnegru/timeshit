@@ -9,6 +9,7 @@ from timeshit.decorators import ajax_handler
 from timeshit.forms import *
 from timeshit.helpers.ajax import *
 from timeshit.helpers.auth import *
+from timeshit.helpers.time import *
 
 
 @csrf_exempt
@@ -49,3 +50,14 @@ def stop(request):
             'duration': record.duration,
         })
     return ajax_response("Form is not valid", serialize_form_errors(form), code=1)
+
+
+def today(request):
+    user = user_auth(request)
+    seconds = get_today_working_time(user)
+    hours = "%02d" % (seconds / 3600)
+    minutes = "%02d" % ((seconds % 3600) / 60)
+    return render_to_response("records/today.html", {
+        'minutes': minutes,
+        'hours': hours,
+    })

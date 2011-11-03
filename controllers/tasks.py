@@ -39,7 +39,7 @@ def index(request):
 
 def show(request, task_id):
     user = user_auth(request)
-    task = get_object_or_404(TimeshitTask, id=project_id, user=user)
+    task = get_object_or_404(TimeshitTask, id=task_id, user=user)
     records = TimeshitRecord.objects.filter(task = task)
     return render_to_response('records/index.html',
                               {'task': task, 'records': records},

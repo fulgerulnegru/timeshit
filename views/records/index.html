@@ -1,0 +1,44 @@
+<div id="projects-wizard" class="modal fade in wizard">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Records on {% if task %} on task {{ task.name }} for project  {{ task.project.name }}{% endif %}</h3>
+  </div>
+  <div class="modal-body">
+    {% if records %}
+    <table id="resources-index">
+      <thead>
+        <th>Task</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Duration</th>
+      </thead>
+      <tbody>
+      {% for record in records %}
+      <tr>
+        <td class="record__task">{{ record.task.name }}</td>
+        <td class="record__start_time">
+          {{ record.start_time }}
+        </td>
+        <td class="record__end_time">
+          {{ record.end_time }}
+        </td>
+        <td class="record__duration">
+          {{ record.duration }}
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="alert-message block-message error">
+      No records found.
+    </div>
+    {% endif %}
+  </div>
+  <div class="modal-footer">
+    <a href="#!/records/new/" class="btn primary">Add</a>
+    {% if task %}
+    <a href="#!/projects/{{ task.project.id }}/" class="btn">Back to tasks</a>
+    {% endif %}
+  </div>
+</div>
